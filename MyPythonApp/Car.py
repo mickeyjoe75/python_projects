@@ -5,7 +5,7 @@ class Car:
         self.time = 0
 
     def say_state(self):
-        print("I'm going {} kph!".format(self.speed))
+        print("I'm going {} mph!".format(self.speed))
 
     def accelerate(self):
         self.speed += 100
@@ -35,8 +35,8 @@ if __name__ == '__main__':
         elif action == 'B':
             my_car.brake()
         elif action == 'O':
-            print("The car has driven {} kilometers".format(my_car.odometer))
+            print("The car has driven {} Miles".format(my_car.odometer))
         elif action == 'S':
-            print("The car's average speed was {} kph".format(my_car.average_speed()))
+            print("The car's average speed was {} mph".format(my_car.average_speed()))
         my_car.step()
         my_car.say_state()
