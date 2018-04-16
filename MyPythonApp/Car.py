@@ -4,7 +4,7 @@ class Car:
         self.odometer = 0
         self.time = 0
 
-    def say_state(self):
+    def say_state(self) -> object:
         print("I'm going {} mph!".format(self.speed))
 
     def accelerate(self):
@@ -20,14 +20,17 @@ class Car:
     def average_speed(self):
         return self.odometer / self.time
 
+    def emergency_break(self):
+        self.speed -= 30
+
 
 if __name__ == '__main__':
     my_car = Car()
     print("I'm a car!")
     while True:
         action = input("What should I do? [A]ccelerate, [B]rake, "
-            "show [O]dometer, or show average [S]peed?").upper()
-        if action not in "ABOS" or len(action) != 1:
+                       "show [O]dometer, [E]mergencyBreak or show average [S]peed?").upper()
+        if action not in "ABOES" or len(action) != 1:
             print("I don't know how to do that")
             continue
         if action == 'A':
@@ -36,6 +39,8 @@ if __name__ == '__main__':
             my_car.brake()
         elif action == 'O':
             print("The car has driven {} Miles".format(my_car.odometer))
+        elif action == 'E':
+            my_car.emergency_break()
         elif action == 'S':
             print("The car's average speed was {} mph".format(my_car.average_speed()))
         my_car.step()
